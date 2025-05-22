@@ -12,9 +12,10 @@ pipeline {
                 sh 'docker build -t frontend-image .'
             }
         }
-        stage('Hello') {
+
+        stage('Run') {
             steps {
-                echo 'Hello World'
+                sh 'docker run -p 0:80 frontend-image'
             }
         }
     }
